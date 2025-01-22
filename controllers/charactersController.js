@@ -1,4 +1,8 @@
 import { characters } from "../data/data.js";
+import {
+  transformCharacterData,
+  transformCharacters,
+} from "../utils/helper.js";
 
 export const getAllCharacters = (req, res) => {
   try {
@@ -11,11 +15,10 @@ export const getAllCharacters = (req, res) => {
       });
     }
 
+    const transformedData = transformCharacters(characters);
+
     res.status(200).json({
-      data: characters,
-      _links: {
-        self: { href: "/characters" },
-      },
+      data: transformedData,
     });
   } catch (err) {
     res.status(500).json({
@@ -32,7 +35,7 @@ export const getCharacterById = (req, res) => {
       return res.status(400).json({
         message: "Invalid ID format",
         _links: {
-          allCharacters: { href: "/characters" },
+          self: { href: "/characters" },
         },
       });
     }
@@ -43,17 +46,13 @@ export const getCharacterById = (req, res) => {
       return res.status(404).json({
         message: "Character not found",
         _links: {
-          allCharacters: { href: "/characters" },
+          characters: { href: "/characters" },
         },
       });
     }
 
     res.status(200).json({
-      data: character,
-      _links: {
-        self: { href: `/characters/${id}` },
-        allCharacters: { href: "/characters" },
-      },
+      data: transformCharacterData(character),
     });
   } catch (err) {
     res.status(500).json({
@@ -63,9 +62,26 @@ export const getCharacterById = (req, res) => {
 };
 
 export const createCharacter = (req, res) => {
-  const { firstName, lastName, fullName, nickname, affiliation, occupancy, alive, bounty } = req.body;
+  const {
+    firstName,
+    lastName,
+    fullName,
+    nickname,
+    affiliation,
+    occupancy,
+    alive,
+    bounty,
+  } = req.body;
 
-  if (!firstName || !lastName || !fullName || !nickname || !affiliation || !occupancy || bounty === undefined) {
+  if (
+    !firstName ||
+    !lastName ||
+    !fullName ||
+    !nickname ||
+    !affiliation ||
+    !occupancy ||
+    bounty === undefined
+  ) {
     return res.status(400).json({
       message: "Missing required fields",
     });
@@ -107,7 +123,16 @@ export const createCharacter = (req, res) => {
 
 export const updateCharacter = (req, res) => {
   const { id } = req.params;
-  const { firstName, lastName, fullName, nickname, affiliation, occupancy, alive, bounty } = req.body;
+  const {
+    firstName,
+    lastName,
+    fullName,
+    nickname,
+    affiliation,
+    occupancy,
+    alive,
+    bounty,
+  } = req.body;
 
   const character = characters.find((char) => char.id === id);
 
@@ -117,7 +142,15 @@ export const updateCharacter = (req, res) => {
     });
   }
 
-  if (!firstName || !lastName || !fullName || !nickname || !affiliation || !occupancy || bounty === undefined) {
+  if (
+    !firstName ||
+    !lastName ||
+    !fullName ||
+    !nickname ||
+    !affiliation ||
+    !occupancy ||
+    bounty === undefined
+  ) {
     return res.status(400).json({
       message: "Missing required fields",
     });
@@ -169,4 +202,3 @@ export const deleteCharacter = (req, res) => {
     });
   }
 };
-

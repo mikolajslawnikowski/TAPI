@@ -1,0 +1,155 @@
+{
+  "data": {
+    "id": "2",
+    "firstName": "Ace",
+    "lastName": "Portgas",
+    "fullName": "Portgas D. Ace",
+    "nickname": "Fire Fist Ace",
+    "affiliation": "Whitebeard Pirates",
+    "occupancy": "Pirate",
+    "alive": false,
+    "bounty": 550000000,
+    "haki": [
+      {
+        "type": "Observation",
+        "description": "Allows user to sense others' presence, strength, and emotions."
+      },
+      {
+        "type": "Armament",
+        "description": "Coats user's body or attacks in an invisible armor of willpower."
+      },
+      {
+        "type": "Conqueror's",
+        "description": "Overpowers the will of others, capable of knocking out weaker opponents."
+      }
+    ],
+    "abilities": [
+      { "name": "Hiken", "description": "Launches a massive column of fire." },
+      {
+        "name": "Enkai",
+        "description": "Creates a large fireball for devastating attacks."
+      }
+    ],
+    "devilFruits": [
+      {
+        "id": "8",
+        "name": "Mera Mera no Mi",
+        "type": "Logia",
+        "meaning": "Flame-Flame Fruit",
+        "properties": "Grants the ability to control, create, and transform into fire, allowing the user to generate flames at will and become intangible as fire.",
+        "_links": { "self": { "href": "/fruits/8" } }
+      }
+    ],
+    "relationships": [
+      {
+        "character": {
+          "id": "1",
+          "firstName": "Luffy",
+          "lastName": "Monkey",
+          "fullName": "Monkey D. Luffy",
+          "nickname": "Straw Hat Luffy",
+          "devilFruits": [
+            {
+              "id": "2",
+              "name": "Gomu Gomu no Mi",
+              "type": "Paramecia",
+              "meaning": "Gum-Gum Fruit",
+              "properties": "Grants user a rubber-like body, allowing him to stretch and withstand physical damage.",
+              "_links": { "self": { "href": "/fruits/2" } }
+            }
+          ],
+          "_links": { "self": { "href": "/characters/1" } }
+        },
+        "relationshipType": "Brother"
+      },
+      {
+        "character": {
+          "id": "4",
+          "firstName": "Edward",
+          "lastName": "Newgate",
+          "fullName": "Edward Newgate",
+          "nickname": "Whitebeard",
+          "devilFruits": [
+            {
+              "id": "3",
+              "name": "Gura Gura no Mi",
+              "type": "Paramecia",
+              "meaning": "Tremor-Tremor Fruit",
+              "properties": "Grants the ability to create powerful shockwaves or tremors, capable of causing massive destruction by creating vibrations in the air, sea, or ground.",
+              "_links": { "self": { "href": "/fruits/3" } }
+            }
+          ],
+          "_links": { "self": { "href": "/characters/4" } }
+        },
+        "relationshipType": "Ally"
+      },
+      {
+        "character": {
+          "id": "9",
+          "firstName": "Sakazuki",
+          "lastName": "",
+          "fullName": "Sakazuki",
+          "nickname": "Akainu",
+          "devilFruits": [
+            {
+              "id": "9",
+              "name": "Magu Magu no Mi",
+              "type": "Logia",
+              "meaning": "Mag-Mag Fruit",
+              "properties": "Grants the ability to create, control, and transform into magma, allowing the user to generate extremely hot lava and control it for offensive and defensive purposes.",
+              "_links": { "self": { "href": "/fruits/9" } }
+            }
+          ],
+          "_links": { "self": { "href": "/characters/9" } }
+        },
+        "relationshipType": "Enemy"
+      },
+      {
+        "character": {
+          "id": "10",
+          "firstName": "Borsalino",
+          "lastName": "",
+          "fullName": "Borsalino",
+          "nickname": "Kizaru",
+          "devilFruits": [
+            {
+              "id": "12",
+              "name": "Pika Pika no Mi",
+              "type": "Logia",
+              "meaning": "Glint-Glint Fruit",
+              "properties": "Grants the ability to create, control, and transform into light, allowing the user to move at the speed of light, create blinding flashes, and manipulate light for attacks or illusions.",
+              "_links": { "self": { "href": "/fruits/12" } }
+            }
+          ],
+          "_links": { "self": { "href": "/characters/10" } }
+        },
+        "relationshipType": "Enemy"
+      },
+      {
+        "character": {
+          "id": "13",
+          "firstName": "Sengoku",
+          "lastName": "",
+          "fullName": "Sengoku",
+          "nickname": "The Buddha",
+          "devilFruits": [
+            {
+              "id": "5",
+              "name": "Hito Hito no Mi, Model: Daibutsu",
+              "type": "Mythical Zoan",
+              "meaning": "Human-Human Fruit, Model: Giant Buddha",
+              "properties": "Grants the ability to transform into a giant, powerful Buddha, as well as a human form. The user gains enormous physical strength, heightened durability, and the ability to unleash powerful spiritual attacks.",
+              "_links": { "self": { "href": "/fruits/5" } }
+            }
+          ],
+          "_links": { "self": { "href": "/characters/13" } }
+        },
+        "relationshipType": "Enemy"
+      }
+    ],
+    "_links": {
+      "characters": { "href": "/characters" },
+      "self": { "href": "/characters/2" }
+    }
+  }
+}
