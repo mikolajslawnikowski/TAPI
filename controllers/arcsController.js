@@ -96,7 +96,7 @@ export const createArc = (req, res) => {
 
 export const updateArc = (req, res) => {
   const { id } = req.params;
-  const { name, firstChapter, lastChapter, characters, plot } = req.body;
+  const updateData = req.body;
 
   const arc = arcs.find((a) => a.id === id);
 
@@ -106,19 +106,11 @@ export const updateArc = (req, res) => {
     });
   }
 
-  if (!name || !firstChapter || !lastChapter || !characters || !plot) {
-    return res.status(400).json({
-      message: "Missing required fields",
-    });
-  }
-
   try {
-    Object.assign(arc, {
-      name,
-      firstChapter,
-      lastChapter,
-      characters,
-      plot,
+    Object.keys(updateData).forEach((key) => {
+      if (arc.hasOwnProperty(key)) {
+        arc[key] = updateData[key];
+      }
     });
 
     res.status(200).json({
