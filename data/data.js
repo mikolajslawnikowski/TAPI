@@ -43,17 +43,24 @@ export const characters = [
     ],
     devilFruits: [
       {
-        fruit: { id: "1", type: "FRUIT" },
+        fruit: { id: "2", type: "FRUIT" },
       },
     ],
-    friends: [
-      { character: { id: "2" }, relationshipType: "Best Friend" },
-      { character: { id: "3" }, relationshipType: "Best Friend" },
-    ],
-    enemies: [
-      { character: { id: "4" }, relationshipType: "Rival" },
-      { character: { id: "7" }, relationshipType: "Rival" },
-      { character: { id: "8" }, relationshipType: "Rival" },
+    relationships: [
+      { character: { id: "2" }, relationshipType: "Brother" },
+      { character: { id: "3" }, relationshipType: "Enemy" },
+      { character: { id: "4" }, relationshipType: "Ally" },
+      { character: { id: "5" }, relationshipType: "Ally" },
+      { character: { id: "6" }, relationshipType: "Ally" },
+      { character: { id: "7" }, relationshipType: "Enemy" },
+      { character: { id: "8" }, relationshipType: "Enemy" },
+      { character: { id: "9" }, relationshipType: "Enemy" },
+      { character: { id: "10" }, relationshipType: "Enemy" },
+      { character: { id: "11" }, relationshipType: "Enemy" },
+      { character: { id: "12" }, relationshipType: "Enemy" },
+      { character: { id: "13" }, relationshipType: "Enemy" },
+      { character: { id: "14" }, relationshipType: "Friend" },
+      { character: { id: "15" }, relationshipType: "Friend" },
     ],
   },
   {
@@ -95,11 +102,16 @@ export const characters = [
     ],
     devilFruits: [
       {
-        fruit: { id: "4", type: "FRUIT" },
+        fruit: { id: "8", type: "FRUIT" },
       },
     ],
-    friends: [{ character: { id: "1" }, relationshipType: "Brother" }],
-    enemies: [{ character: { id: "6" }, relationshipType: "Enemy" }],
+    relationships: [
+      { character: { id: "1" }, relationshipType: "Brother" },
+      { character: { id: "4" }, relationshipType: "Ally" },
+      { character: { id: "9" }, relationshipType: "Enemy" },
+      { character: { id: "10" }, relationshipType: "Enemy" },
+      { character: { id: "13" }, relationshipType: "Enemy" },
+    ],
   },
   {
     id: "3",
@@ -130,16 +142,19 @@ export const characters = [
     ],
     devilFruits: [
       {
-        fruit: { id: "2", type: "FRUIT" },
+        fruit: { id: "1", type: "FRUIT" },
       },
     ],
-    friends: [
-      { character: { id: "5" }, relationshipType: "Ally" },
-      { character: { id: "6" }, relationshipType: "Business Partner" },
-    ],
-    enemies: [
-      { character: { id: "1" }, relationshipType: "Rival" },
-      { character: { id: "7" }, relationshipType: "Adversary" },
+    relationships: [
+      { character: { id: "1" }, relationshipType: "Enemy" },
+      { character: { id: "4" }, relationshipType: "Enemy" },
+      { character: { id: "9" }, relationshipType: "Enemy" },
+      { character: { id: "10" }, relationshipType: "Enemy" },
+      { character: { id: "11" }, relationshipType: "Enemy" },
+      { character: { id: "12" }, relationshipType: "Enemy" },
+      { character: { id: "13" }, relationshipType: "Enemy" },
+      { character: { id: "14" }, relationshipType: "Enemy" },
+      { character: { id: "15" }, relationshipType: "Enemy" },
     ],
   },
   {
@@ -190,13 +205,15 @@ export const characters = [
         fruit: { id: "3", type: "FRUIT" },
       },
     ],
-    friends: [
-      { character: { id: "2" }, relationshipType: "Close Friend" },
-      { character: { id: "8" }, relationshipType: "Trusted Ally" },
-    ],
-    enemies: [
-      { character: { id: "6" }, relationshipType: "Bitter Rival" },
+    relationships: [
+      { character: { id: "1" }, relationshipType: "Ally" },
+      { character: { id: "2" }, relationshipType: "Friend" },
+      { character: { id: "3" }, relationshipType: "Enemy" },
+      { character: { id: "7" }, relationshipType: "Enemy" },
+      { character: { id: "8" }, relationshipType: "Enemy" },
       { character: { id: "9" }, relationshipType: "Enemy" },
+      { character: { id: "10" }, relationshipType: "Enemy" },
+      { character: { id: "13" }, relationshipType: "Enemy" },
     ],
   },
   {
@@ -242,13 +259,20 @@ export const characters = [
     ],
     devilFruits: [
       {
-        fruit: { id: "5", type: "FRUIT" },
+        fruit: { id: "6", type: "FRUIT" },
       },
     ],
-    friends: [{ character: { id: "6" }, relationshipType: "Ally" }],
-    enemies: [
-      { character: { id: "1" }, relationshipType: "Rival" },
-      { character: { id: "7" }, relationshipType: "Adversary" },
+    relationships: [
+      { character: { id: "1" }, relationshipType: "Ally" },
+      { character: { id: "6" }, relationshipType: "Ally" },
+      { character: { id: "7" }, relationshipType: "Enemy" },
+      { character: { id: "8" }, relationshipType: "Enemy" },
+      { character: { id: "9" }, relationshipType: "Enemy" },
+      { character: { id: "10" }, relationshipType: "Enemy" },
+      { character: { id: "11" }, relationshipType: "Enemy" },
+      { character: { id: "12" }, relationshipType: "Enemy" },
+      { character: { id: "13" }, relationshipType: "Enemy" },
+      { character: { id: "15" }, relationshipType: "Ally" },
     ],
   },
   {
@@ -296,16 +320,20 @@ export const characters = [
     ],
     devilFruits: [
       {
-        fruit: { id: "6", type: "FRUIT" },
+        fruit: { id: "11", type: "FRUIT" },
       },
     ],
-    friends: [
+    relationships: [
       { character: { id: "1" }, relationshipType: "Ally" },
       { character: { id: "5" }, relationshipType: "Ally" },
-    ],
-    enemies: [
-      { character: { id: "7" }, relationshipType: "Rival" },
+      { character: { id: "7" }, relationshipType: "Enemy" },
+      { character: { id: "8" }, relationshipType: "Enemy" },
       { character: { id: "9" }, relationshipType: "Enemy" },
+      { character: { id: "10" }, relationshipType: "Enemy" },
+      { character: { id: "11" }, relationshipType: "Enemy" },
+      { character: { id: "12" }, relationshipType: "Enemy" },
+      { character: { id: "13" }, relationshipType: "Enemy" },
+      { character: { id: "15" }, relationshipType: "Ally" },
     ],
   },
   {
@@ -355,17 +383,20 @@ export const characters = [
     ],
     devilFruits: [
       {
-        fruit: { id: "7", type: "FRUIT" },
+        fruit: { id: "14", type: "FRUIT" },
       },
     ],
-    friends: [
-      { character: { id: "8" }, relationshipType: "Ally" },
-      { character: { id: "9" }, relationshipType: "Business Partner" },
-    ],
-    enemies: [
-      { character: { id: "1" }, relationshipType: "Rival" },
+    relationships: [
+      { character: { id: "1" }, relationshipType: "Enemy" },
+      { character: { id: "4" }, relationshipType: "Enemy" },
+      { character: { id: "5" }, relationshipType: "Enemy" },
       { character: { id: "6" }, relationshipType: "Enemy" },
-      { character: { id: "4" }, relationshipType: "Bitter Rival" },
+      { character: { id: "8" }, relationshipType: "Ally" },
+      { character: { id: "9" }, relationshipType: "Enemy" },
+      { character: { id: "10" }, relationshipType: "Enemy" },
+      { character: { id: "11" }, relationshipType: "Enemy" },
+      { character: { id: "12" }, relationshipType: "Enemy" },
+      { character: { id: "13" }, relationshipType: "Enemy" },
     ],
   },
   {
@@ -417,17 +448,20 @@ export const characters = [
     ],
     devilFruits: [
       {
-        fruit: { id: "8", type: "FRUIT" },
+        fruit: { id: "13", type: "FRUIT" },
       },
     ],
-    friends: [
-      { character: { id: "7" }, relationshipType: "Ally" },
-      { character: { id: "9" }, relationshipType: "Business Partner" },
-    ],
-    enemies: [
-      { character: { id: "1" }, relationshipType: "Rival" },
+    relationships: [
+      { character: { id: "1" }, relationshipType: "Enemy" },
       { character: { id: "4" }, relationshipType: "Enemy" },
-      { character: { id: "6" }, relationshipType: "Adversary" },
+      { character: { id: "5" }, relationshipType: "Enemy" },
+      { character: { id: "6" }, relationshipType: "Enemy" },
+      { character: { id: "8" }, relationshipType: "Ally" },
+      { character: { id: "9" }, relationshipType: "Enemy" },
+      { character: { id: "10" }, relationshipType: "Enemy" },
+      { character: { id: "11" }, relationshipType: "Enemy" },
+      { character: { id: "12" }, relationshipType: "Enemy" },
+      { character: { id: "13" }, relationshipType: "Enemy" },
     ],
   },
   {
@@ -472,11 +506,19 @@ export const characters = [
         fruit: { id: "9", type: "FRUIT" },
       },
     ],
-    friends: [{ character: { id: "10" }, relationshipType: "Trusted Ally" }],
-    enemies: [
-      { character: { id: "1" }, relationshipType: "Rival" },
+    relationships: [
+      { character: { id: "1" }, relationshipType: "Enemy" },
       { character: { id: "2" }, relationshipType: "Enemy" },
-      { character: { id: "4" }, relationshipType: "Adversary" },
+      { character: { id: "3" }, relationshipType: "Enemy" },
+      { character: { id: "4" }, relationshipType: "Enemy" },
+      { character: { id: "5" }, relationshipType: "Enemy" },
+      { character: { id: "6" }, relationshipType: "Enemy" },
+      { character: { id: "7" }, relationshipType: "Enemy" },
+      { character: { id: "8" }, relationshipType: "Enemy" },
+      { character: { id: "10" }, relationshipType: "Friend" },
+      { character: { id: "11" }, relationshipType: "Friend" },
+      { character: { id: "12" }, relationshipType: "Friend" },
+      { character: { id: "13" }, relationshipType: "Friend" },
     ],
   },
   {
@@ -519,14 +561,22 @@ export const characters = [
     ],
     devilFruits: [
       {
-        fruit: { id: "10", type: "FRUIT" },
+        fruit: { id: "12", type: "FRUIT" },
       },
     ],
-    friends: [{ character: { id: "9" }, relationshipType: "Trusted Ally" }],
-    enemies: [
+    relationships: [
       { character: { id: "1" }, relationshipType: "Enemy" },
-      { character: { id: "6" }, relationshipType: "Adversary" },
-      { character: { id: "4" }, relationshipType: "Rival" },
+      { character: { id: "2" }, relationshipType: "Enemy" },
+      { character: { id: "3" }, relationshipType: "Enemy" },
+      { character: { id: "4" }, relationshipType: "Enemy" },
+      { character: { id: "5" }, relationshipType: "Enemy" },
+      { character: { id: "6" }, relationshipType: "Enemy" },
+      { character: { id: "7" }, relationshipType: "Enemy" },
+      { character: { id: "8" }, relationshipType: "Enemy" },
+      { character: { id: "9" }, relationshipType: "Friend" },
+      { character: { id: "11" }, relationshipType: "Friend" },
+      { character: { id: "12" }, relationshipType: "Friend" },
+      { character: { id: "13" }, relationshipType: "Friend" },
     ],
   },
   {
@@ -570,14 +620,20 @@ export const characters = [
     ],
     devilFruits: [
       {
-        fruit: { id: "11", type: "FRUIT" },
+        fruit: { id: "15", type: "FRUIT" },
       },
     ],
-    friends: [{ character: { id: "9" }, relationshipType: "Ally" }],
-    enemies: [
+    relationships: [
       { character: { id: "1" }, relationshipType: "Enemy" },
-      { character: { id: "6" }, relationshipType: "Adversary" },
-      { character: { id: "4" }, relationshipType: "Rival" },
+      { character: { id: "3" }, relationshipType: "Enemy" },
+      { character: { id: "5" }, relationshipType: "Enemy" },
+      { character: { id: "6" }, relationshipType: "Enemy" },
+      { character: { id: "7" }, relationshipType: "Enemy" },
+      { character: { id: "8" }, relationshipType: "Enemy" },
+      { character: { id: "9" }, relationshipType: "Friend" },
+      { character: { id: "10" }, relationshipType: "Friend" },
+      { character: { id: "12" }, relationshipType: "Friend" },
+      { character: { id: "13" }, relationshipType: "Friend" },
     ],
   },
   {
@@ -621,14 +677,20 @@ export const characters = [
     ],
     devilFruits: [
       {
-        fruit: { id: "12", type: "FRUIT" },
+        fruit: { id: "10", type: "FRUIT" },
       },
     ],
-    friends: [{ character: { id: "9" }, relationshipType: "Ally" }],
-    enemies: [
+    relationships: [
       { character: { id: "1" }, relationshipType: "Enemy" },
-      { character: { id: "6" }, relationshipType: "Adversary" },
-      { character: { id: "7" }, relationshipType: "Rival" },
+      { character: { id: "3" }, relationshipType: "Enemy" },
+      { character: { id: "5" }, relationshipType: "Enemy" },
+      { character: { id: "6" }, relationshipType: "Enemy" },
+      { character: { id: "7" }, relationshipType: "Enemy" },
+      { character: { id: "8" }, relationshipType: "Enemy" },
+      { character: { id: "9" }, relationshipType: "Friend" },
+      { character: { id: "10" }, relationshipType: "Friend" },
+      { character: { id: "11" }, relationshipType: "Friend" },
+      { character: { id: "13" }, relationshipType: "Friend" },
     ],
   },
   {
@@ -677,14 +739,22 @@ export const characters = [
     ],
     devilFruits: [
       {
-        fruit: { id: "13", type: "FRUIT" },
+        fruit: { id: "5", type: "FRUIT" },
       },
     ],
-    friends: [{ character: { id: "9" }, relationshipType: "Ally" }],
-    enemies: [
-      { character: { id: "1" }, relationshipType: "Rival" },
-      { character: { id: "4" }, relationshipType: "Adversary" },
+    relationships: [
+      { character: { id: "1" }, relationshipType: "Enemy" },
+      { character: { id: "2" }, relationshipType: "Enemy" },
+      { character: { id: "3" }, relationshipType: "Enemy" },
+      { character: { id: "4" }, relationshipType: "Enemy" },
+      { character: { id: "5" }, relationshipType: "Enemy" },
       { character: { id: "6" }, relationshipType: "Enemy" },
+      { character: { id: "7" }, relationshipType: "Enemy" },
+      { character: { id: "8" }, relationshipType: "Enemy" },
+      { character: { id: "9" }, relationshipType: "Friend" },
+      { character: { id: "10" }, relationshipType: "Friend" },
+      { character: { id: "11" }, relationshipType: "Friend" },
+      { character: { id: "12" }, relationshipType: "Friend" },
     ],
   },
   {
@@ -733,16 +803,12 @@ export const characters = [
     ],
     devilFruits: [
       {
-        fruit: { id: "14", type: "FRUIT" },
+        fruit: { id: "7", type: "FRUIT" },
       },
     ],
-    friends: [
-      { character: { id: "1" }, relationshipType: "Ally" },
-      { character: { id: "2" }, relationshipType: "Ally" },
-    ],
-    enemies: [
-      { character: { id: "7" }, relationshipType: "Rival" },
-      { character: { id: "4" }, relationshipType: "Adversary" },
+    relationships: [
+      { character: { id: "1" }, relationshipType: "Friend" },
+      { character: { id: "3" }, relationshipType: "Enemy" },
     ],
   },
   {
@@ -774,16 +840,14 @@ export const characters = [
     ],
     devilFruits: [
       {
-        fruit: { id: "15", type: "FRUIT" },
+        fruit: { id: "4", type: "FRUIT" },
       },
     ],
-    friends: [
-      { character: { id: "1" }, relationshipType: "Crew Member" },
-      { character: { id: "2" }, relationshipType: "Crew Member" },
-    ],
-    enemies: [
-      { character: { id: "4" }, relationshipType: "Adversary" },
-      { character: { id: "7" }, relationshipType: "Rival" },
+    relationships: [
+      { character: { id: "1" }, relationshipType: "Friend" },
+      { character: { id: "3" }, relationshipType: "Enemy" },
+      { character: { id: "5" }, relationshipType: "Ally" },
+      { character: { id: "6" }, relationshipType: "Ally" },
     ],
   },
 ];
@@ -791,127 +855,262 @@ export const characters = [
 export const fruits = [
   {
     id: "1",
-    name: "Gomu Gomu no Mi",
-    type: "Paramecia",
-    meaning: "Gum-Gum Fruit",
-    abilities:
-      "Grants user a rubber-like body, allowing him to stretch and withstand physical damage.",
-  },
-  {
-    id: "2",
-    name: "Mera Mera no Mi",
-    type: "Logia",
-    meaning: "Flame-Flame Fruit",
-    abilities:
-      "Grants the ability to control, create, and transform into fire, allowing the user to generate flames at will and become intangible as fire.",
-  },
-  {
-    id: "3",
     name: "Bara Bara no Mi",
     type: "Paramecia",
     meaning: "Chop-Chop Fruit",
-    abilities:
+    properties:
       "Grants the ability to split the user's body into pieces, allowing them to separate and control the parts independently, as well as make objects or people split apart.",
   },
   {
-    id: "4",
+    id: "2",
+    name: "Gomu Gomu no Mi",
+    type: "Paramecia",
+    meaning: "Gum-Gum Fruit",
+    properties:
+      "Grants user a rubber-like body, allowing him to stretch and withstand physical damage.",
+  },
+  {
+    id: "3",
     name: "Gura Gura no Mi",
     type: "Paramecia",
     meaning: "Tremor-Tremor Fruit",
-    abilities:
+    properties:
       "Grants the ability to create powerful shockwaves or tremors, capable of causing massive destruction by creating vibrations in the air, sea, or ground.",
   },
   {
-    id: "5",
-    name: "Jiki Jiki no Mi",
+    id: "4",
+    name: "Hana Hana no Mi",
     type: "Paramecia",
-    meaning: "Magnet-Magnet Fruit",
-    abilities:
-      "Grants the ability to control magnetic fields, allowing the user to manipulate metal objects, attract or repel them, and even control the polarity of magnetic forces.",
+    meaning: "Flower-Flower Fruit",
+    properties:
+      "Grants the ability to create and control multiple body parts on any surface, including the user’s own body, allowing them to grow limbs and organs in various locations and control them remotely.",
+  },
+  {
+    id: "5",
+    name: "Hito Hito no Mi, Model: Daibutsu",
+    type: "Mythical Zoan",
+    meaning: "Human-Human Fruit, Model: Giant Buddha",
+    properties:
+      "Grants the ability to transform into a giant, powerful Buddha, as well as a human form. The user gains enormous physical strength, heightened durability, and the ability to unleash powerful spiritual attacks.",
   },
   {
     id: "6",
-    name: "Ope Ope no Mi",
+    name: "Jiki Jiki no Mi",
     type: "Paramecia",
-    meaning: "Op-Op Fruit",
-    abilities:
-      "Grants the ability to create a 'room' in which the user can manipulate objects, people, and even perform surgeries by controlling the space. It allows for extraordinary control over matter within the room, including the power to switch body parts and perform precise, non-lethal operations.",
+    meaning: "Magnet-Magnet Fruit",
+    properties:
+      "Grants the ability to control magnetic fields, allowing the user to manipulate metal objects, attract or repel them, and even control the polarity of magnetic forces.",
   },
   {
     id: "7",
-    name: "Uo Uo no Mi, Model: Seiryu",
-    type: "Zoan",
-    meaning: "Fish-Fish Fruit, Model: Azure Dragon",
-    abilities:
-      "Grants the ability to transform into an Azure Dragon (Seiryu), a powerful and mythical creature, as well as the ability to control water and the sky. The user gains immense strength, flight, and the power to manipulate elemental forces.",
+    name: "Mero Mero no Mi",
+    type: "Paramecia",
+    meaning: "Love-Love Fruit",
+    properties:
+      "Grants the ability to turn anyone who feels attraction or lust into stone by using heart-shaped beams of energy, controlling people's emotions and manipulating love or affection as a weapon.",
   },
   {
     id: "8",
-    name: "Soru Soru no Mi",
-    type: "Paramecia",
-    meaning: "Soul-Soul Fruit",
-    abilities:
-      "Grants the ability to manipulate souls, allowing the user to transfer souls into objects or people, control them, and even create homies (animated objects) by giving them a soul.",
+    name: "Mera Mera no Mi",
+    type: "Logia",
+    meaning: "Flame-Flame Fruit",
+    properties:
+      "Grants the ability to control, create, and transform into fire, allowing the user to generate flames at will and become intangible as fire.",
   },
   {
     id: "9",
     name: "Magu Magu no Mi",
     type: "Logia",
     meaning: "Mag-Mag Fruit",
-    abilities:
+    properties:
       "Grants the ability to create, control, and transform into magma, allowing the user to generate extremely hot lava and control it for offensive and defensive purposes.",
   },
   {
     id: "10",
-    name: "Pika Pika no Mi",
-    type: "Logia",
-    meaning: "Glint-Glint Fruit",
-    abilities:
-      "Grants the ability to create, control, and transform into light, allowing the user to move at the speed of light, create blinding flashes, and manipulate light for attacks or illusions.",
-  },
-  {
-    id: "11",
-    name: "Zushi Zushi no Mi",
-    type: "Paramecia",
-    meaning: "Press-Press Fruit",
-    abilities:
-      "Grants the ability to control gravity, allowing the user to manipulate gravitational forces to create massive crushes, levitate objects, or increase/decrease the weight of anything within their range.",
-  },
-  {
-    id: "12",
     name: "Mori Mori no Mi",
     type: "Logia",
     meaning: "Woods-Woods Fruit",
-    abilities:
+    properties:
       "Grants the ability to create, control, and transform into trees and plants, allowing the user to manipulate the forest and its growth, as well as control plant-based attacks and defensive techniques.",
   },
   {
+    id: "11",
+    name: "Ope Ope no Mi",
+    type: "Paramecia",
+    meaning: "Op-Op Fruit",
+    properties:
+      "Grants the ability to create a 'room' in which the user can manipulate objects, people, and even perform surgeries by controlling the space. It allows for extraordinary control over matter within the room, including the power to switch body parts and perform precise, non-lethal operations.",
+  },
+  {
+    id: "12",
+    name: "Pika Pika no Mi",
+    type: "Logia",
+    meaning: "Glint-Glint Fruit",
+    properties:
+      "Grants the ability to create, control, and transform into light, allowing the user to move at the speed of light, create blinding flashes, and manipulate light for attacks or illusions.",
+  },
+  {
     id: "13",
-    name: "Hito Hito no Mi, Model: Daibutsu",
-    type: "Mythical Zoan",
-    meaning: "Human-Human Fruit, Model: Giant Buddha",
-    abilities:
-      "Grants the ability to transform into a giant, powerful Buddha, as well as a human form. The user gains enormous physical strength, heightened durability, and the ability to unleash powerful spiritual attacks.",
+    name: "Soru Soru no Mi",
+    type: "Paramecia",
+    meaning: "Soul-Soul Fruit",
+    properties:
+      "Grants the ability to manipulate souls, allowing the user to transfer souls into objects or people, control them, and even create homies (animated objects) by giving them a soul.",
   },
   {
     id: "14",
-    name: "Mero Mero no Mi",
-    type: "Paramecia",
-    meaning: "Love-Love Fruit",
-    abilities:
-      "Grants the ability to turn anyone who feels attraction or lust into stone by using heart-shaped beams of energy, controlling people's emotions and manipulating love or affection as a weapon.",
+    name: "Uo Uo no Mi, Model: Seiryu",
+    type: "Zoan",
+    meaning: "Fish-Fish Fruit, Model: Azure Dragon",
+    properties:
+      "Grants the ability to transform into an Azure Dragon (Seiryu), a powerful and mythical creature, as well as the ability to control water and the sky. The user gains immense strength, flight, and the power to manipulate elemental forces.",
   },
   {
     id: "15",
-    name: "Hana Hana no Mi",
+    name: "Zushi Zushi no Mi",
     type: "Paramecia",
-    meaning: "Flower-Flower Fruit",
-    abilities:
-      "Grants the ability to create and control multiple body parts on any surface, including the user’s own body, allowing them to grow limbs and organs in various locations and control them remotely.",
+    meaning: "Press-Press Fruit",
+    properties:
+      "Grants the ability to control gravity, allowing the user to manipulate gravitational forces to create massive crushes, levitate objects, or increase/decrease the weight of anything within their range.",
   },
 ];
+
+export const arcs =[
+  {
+    id: "1",
+    name: "Arabasta",
+    firstChapter: 155,
+    lastChapter: 217,
+    characters: [
+      { character: { id: "1" }, role: "Main" },
+      { character: { id: "2" }, relationshipType: "Supporting" },
+      { character: { id: "15" }, relationshipType: "Main" },
+    ],
+    plot: "The Straw Hats finally reach the desert kingdom of Arabasta and begin their race across the land to reach Alubarna before a massive war can break out between the kingdom's royal guards and the rebels. However, the true perpetrator of the war, Mr. 0 (Crocodile), and his remaining Baroque Works officer agents stand in the way of the Straw Hats reaching their goal."
+  },
+  {
+    id: "2",
+    name: "Skypiea",
+    firstChapter: 237,
+    lastChapter: 302,
+    characters: [
+      { character: { id: "1" }, role: "Main" },
+      { character: { id: "15" }, relationshipType: "Main" },
+    ],
+    plot: "The Straw Hats arrive on the Sky Island Skypiea and learn of its connections to Jaya and Mont Blanc Noland's tale of a lost city of gold. As the crew embarks in search of treasure, they become entangled in a three-way war between the native Skypieans, the vengeful Shandians, and the land's cruel 'god', Enel."
+  },
+  {
+    id: "3",
+    name: "Water 7",
+    firstChapter: 322,
+    lastChapter: 374,
+    characters: [
+      { character: { id: "1" }, role: "Main" },
+      { character: { id: "15" }, relationshipType: "Main" },
+    ],
+    plot: "The Straw Hats arrive at the oceanic metropolis of Water 7 to find a shipwright who can repair the Going Merry, as well as potentially join their crew. They soon become targeted by the Franky Family, the city's underground gang, and become involved in a plot within the Galley-La Company. Between the disappearance of Robin and a schism that develops between Luffy and Usopp, the crew begins to fall apart."
+  },
+  {
+    id: "4",
+    name: "Enies Lobby",
+    firstChapter: 375,
+    lastChapter: 430,
+    characters: [
+      { character: { id: "1" }, role: "Main" },
+      { character: { id: "15" }, relationshipType: "Main" },
+    ],
+    plot: "The Straw Hats, Sogeking, the Franky Family, and the shipwrights of the Galley-La Company arrive at Enies Lobby aboard the Rocketman to rescue Nico Robin and Franky. Standing in their way, however, are the forces of the World Government, including its deadly assassination unit, CP9. A massive battle ensues between the two sides when Luffy declares war against the World Government."
+  },
+  {
+    id: "5",
+    name: "Sabaody Archipelago",
+    firstChapter: 490,
+    lastChapter: 513,
+    characters: [
+      { character: { id: "1" }, role: "Main" },
+      { character: { id: "5" }, relationshipType: "Main" },
+      { character: { id: "6" }, relationshipType: "Main" },
+      { character: { id: "10" }, relationshipType: "Main" },
+      { character: { id: "15" }, relationshipType: "Main" },
+    ],
+    plot: "The Straw Hat Pirates arrive at the final island of the Grand Line's first half, Sabaody Archipelago. While searching for a means to pass under the Red Line into the New World, they come into conflict with a deadly slave trading ring that sells to the World Nobles. Luffy and Zoro are labelled as two of the Eleven Supernovas, rookies of significant bounties who have simultaneously arrived at the archipelago. A chain reaction of events engulfs the archipelago in chaos, and the Straw Hats are faced with their greatest challenge yet."
+  },
+  {
+    id: "6",
+    name: "Impel Down",
+    firstChapter: 525,
+    lastChapter: 549,
+    characters: [
+      { character: { id: "1" }, role: "Main" },
+      { character: { id: "2" }, relationshipType: "Main" },
+      { character: { id: "3" }, relationshipType: "Main" },
+      { character: { id: "14" }, relationshipType: "Main" },
+    ],
+    plot: "Luffy puts finding his crew on hold in favor of rescuing his brother Ace from the underwater prison Impel Down. With Boa Hancock's help, he manages to infiltrate the facility. However, fulfilling his objective and escaping the hellish prison might be easier said than done."
+  },
+  {
+    id: "7",
+    name: "Marineford",
+    firstChapter: 550,
+    lastChapter: 580,
+    characters: [
+      { character: { id: "1" }, role: "Main" },
+      { character: { id: "2" }, relationshipType: "Main" },
+      { character: { id: "3" }, relationshipType: "Supporting" },
+      { character: { id: "4" }, relationshipType: "Main" },
+      { character: { id: "9" }, relationshipType: "Main" },
+      { character: { id: "10" }, relationshipType: "Main" },
+      { character: { id: "13" }, relationshipType: "Main" },
+      { character: { id: "14" }, relationshipType: "Supporting" },
+    ],
+    plot: "Having failed to reach Ace before he was transferred, Luffy and his companions escape from Impel Down and travel to Marineford, the base of Marine Headquarters. With the odds stacked high against him, the imminent threat of Whitebeard, and the ulterior motives of pirates that wish to overthrow the Emperor, Luffy struggles to hold his own in this titanic clash of powers."
+  },
+  {
+    id: "8",
+    name: "Punk Hazard",
+    firstChapter: 654,
+    lastChapter: 699,
+    characters: [
+      { character: { id: "1" }, role: "Main" },
+      { character: { id: "6" }, relationshipType: "Main" },
+      { character: { id: "15" }, relationshipType: "Main" },
+    ],
+    plot: "Upon finally entering the New World, the Straw Hat Pirates immediately receive a distress call from residents of Punk Hazard, who state that a samurai is attacking them. Without hesitation, Luffy sets out to the blazing island, with Vice Admiral Smoker hot on his tail. On the supposedly death-ridden and empty island, the Straw Hats soon must contend with both the G-5 Marines, led by Vice Admiral Smoker, and the mad scientist Caesar Clown, whose deadly experiments must be stopped."
+  },
+  {
+    id: "9",
+    name: "Dressrosa",
+    firstChapter: 700,
+    lastChapter: 801,
+    characters: [
+      { character: { id: "1" }, role: "Main" },
+      { character: { id: "6" }, relationshipType: "Main" },
+      { character: { id: "11" }, relationshipType: "Supporting" },
+      { character: { id: "15" }, relationshipType: "Main" },
+    ],
+    plot: "The Straw Hat Pirates and Trafalgar Law, together with Kin'emon, Momonosuke and the captured Caesar Clown, travel to Dressrosa with the goal of taking down the nation's king, Warlord of the Sea Donquixote Doflamingo. However, they soon set into motion a series of world-changing events, as their actions interact unexpectedly with those of larger forces at play."
+  },
+  {
+    id: "10",
+    name: "Wano",
+    firstChapter: 909,
+    lastChapter: 1057,
+    characters: [
+      { character: { id: "1" }, role: "Main" },
+      { character: { id: "5" }, relationshipType: "Main" },
+      { character: { id: "6" }, relationshipType: "Main" },
+      { character: { id: "7" }, relationshipType: "Main" },
+      { character: { id: "8" }, relationshipType: "Main" },
+      { character: { id: "12" }, relationshipType: "Supporting" },
+      { character: { id: "15" }, relationshipType: "Main" },
+    ],
+    plot: "The Ninja-Pirate-Mink-Samurai Alliance gather their forces in Wano Country and prepare for their inevitable clash against the Beasts Pirates. The history of Kouzuki Oden and his ties to Wano Country, Whitebeard and Gol D. Roger are revealed, and the Alliance assaults Onigashima to take down the allied forces of Kaidou and Big Mom once and for all. The resulting battle, as well as the events during the recent Levely, cause the world to go through dramatic changes."
+  },
+];
+
 
 export default {
   characters,
   fruits,
+  arcs,
 };
