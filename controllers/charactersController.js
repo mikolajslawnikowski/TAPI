@@ -71,6 +71,10 @@ export const createCharacter = (req, res) => {
     occupancy,
     alive,
     bounty,
+    haki,
+    abilities,
+    devilFruits,
+    relationships,
   } = req.body;
 
   if (
@@ -80,10 +84,29 @@ export const createCharacter = (req, res) => {
     !nickname ||
     !affiliation ||
     !occupancy ||
-    bounty === undefined
+    alive === undefined ||
+    bounty === undefined ||
+    !Array.isArray(haki) ||
+    !Array.isArray(abilities) ||
+    !Array.isArray(devilFruits) ||
+    !Array.isArray(relationships)
   ) {
     return res.status(400).json({
-      message: "Missing required fields",
+      message: "All fields are required",
+      requiredFields: {
+        firstName: "string",
+        lastName: "string",
+        fullName: "string",
+        nickname: "string",
+        affiliation: "string",
+        occupancy: "string",
+        alive: "boolean",
+        bounty: "number",
+        haki: "array",
+        abilities: "array",
+        devilFruits: "array",
+        relationships: "array",
+      },
     });
   }
 
@@ -96,12 +119,12 @@ export const createCharacter = (req, res) => {
       nickname,
       affiliation,
       occupancy,
-      alive: alive !== undefined ? alive : true,
+      alive,
       bounty,
-      haki: [],
-      abilities: [],
-      devilFruits: [],
-      relationships: [],
+      haki,
+      abilities,
+      devilFruits,
+      relationships,
     };
 
     characters.push(newCharacter);
@@ -123,16 +146,7 @@ export const createCharacter = (req, res) => {
 
 export const updateCharacter = (req, res) => {
   const { id } = req.params;
-  const {
-    firstName,
-    lastName,
-    fullName,
-    nickname,
-    affiliation,
-    occupancy,
-    alive,
-    bounty,
-  } = req.body;
+  const updateData = req.body;
 
   const character = characters.find((char) => char.id === id);
 
@@ -142,30 +156,11 @@ export const updateCharacter = (req, res) => {
     });
   }
 
-  if (
-    !firstName ||
-    !lastName ||
-    !fullName ||
-    !nickname ||
-    !affiliation ||
-    !occupancy ||
-    bounty === undefined
-  ) {
-    return res.status(400).json({
-      message: "Missing required fields",
-    });
-  }
-
   try {
-    Object.assign(character, {
-      firstName,
-      lastName,
-      fullName,
-      nickname,
-      affiliation,
-      occupancy,
-      alive,
-      bounty,
+    Object.keys(updateData).forEach((key) => {
+      if (character.hasOwnProperty(key)) {
+        character[key] = updateData[key];
+      }
     });
 
     res.status(200).json({
