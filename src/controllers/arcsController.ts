@@ -1,22 +1,23 @@
-import { arcs } from "../data/data.js";
-import { transformArcData, transformArcs } from "../utils/helper.js";
+import { RequestHandler } from "express";
+import { arcs } from "../data/data";
+import { transformArcData, transformArcs } from "../utils/helper";
+import { Arc } from "../types/arc";
 
-export const getAllArcs = (req, res) => {
+export const getAllArcs: RequestHandler = (_req, res) => {
   try {
     if (arcs.length === 0) {
-      return res.status(404).json({
+      res.status(404).json({
         message: "No arcs found",
         _links: {
           self: { href: "/arcs" },
         },
       });
+    } else {
+      const transformedData = transformArcs(arcs);
+      res.status(200).json({
+        data: transformedData,
+      });
     }
-
-    const transformedData = transformArcs(arcs);
-
-    res.status(200).json({
-      data: transformedData,
-    });
   } catch (err) {
     res.status(500).json({
       message: "Internal Server Error",
@@ -24,28 +25,30 @@ export const getAllArcs = (req, res) => {
   }
 };
 
-export const getArcById = (req, res) => {
+export const getArcById: RequestHandler<{ id: string }> = (req, res) => {
   try {
     const { id } = req.params;
 
-    if (!id || isNaN(id)) {
-      return res.status(400).json({
+    if (!id || isNaN(Number(id))) {
+      res.status(400).json({
         message: "Invalid ID format",
         _links: {
           self: { href: "/arcs" },
         },
       });
+      return;
     }
 
     const arc = arcs.find((a) => a.id === id);
 
     if (!arc) {
-      return res.status(404).json({
+      res.status(404).json({
         message: "Arc not found",
         _links: {
           arcs: { href: "/arcs" },
         },
       });
+      return;
     }
 
     res.status(200).json({
@@ -58,13 +61,14 @@ export const getArcById = (req, res) => {
   }
 };
 
-export const createArc = (req, res) => {
+export const createArc: RequestHandler<{}, any, Arc> = (req, res) => {
   const { name, firstChapter, lastChapter, characters, plot } = req.body;
 
   if (!name || !firstChapter || !lastChapter || !characters || !plot) {
-    return res.status(400).json({
+    res.status(400).json({
       message: "Missing required fields",
     });
+    return;
   }
 
   try {
@@ -94,22 +98,33 @@ export const createArc = (req, res) => {
   }
 };
 
-export const updateArc = (req, res) => {
+export const updateArc: RequestHandler<{ id: string }, any, Partial<Arc>> = (
+  req,
+  res
+) => {
   const { id } = req.params;
   const updateData = req.body;
 
   const arc = arcs.find((a) => a.id === id);
 
   if (!arc) {
-    return res.status(404).json({
+    res.status(404).json({
       message: "Arc not found",
     });
+    return;
   }
 
   try {
-    Object.keys(updateData).forEach((key) => {
-      if (arc.hasOwnProperty(key)) {
-        arc[key] = updateData[key];
+    const validKeys = [
+      "name",
+      "firstChapter",
+      "lastChapter",
+      "characters",
+      "plot",
+    ] as const;
+    validKeys.forEach((key) => {
+      if (key in updateData && updateData[key] !== undefined) {
+        (arc as any)[key] = updateData[key];
       }
     });
 
@@ -128,14 +143,15 @@ export const updateArc = (req, res) => {
   }
 };
 
-export const deleteArc = (req, res) => {
+export const deleteArc: RequestHandler<{ id: string }> = (req, res) => {
   const { id } = req.params;
   const arcIndex = arcs.findIndex((a) => a.id === id);
 
   if (arcIndex === -1) {
-    return res.status(404).json({
+    res.status(404).json({
       message: "Arc not found",
     });
+    return;
   }
 
   try {

@@ -1,4 +1,8 @@
-export const characters = [
+import { Character } from "../types/character";
+import { Fruit } from "../types/fruit";
+import { Arc } from "../types/arc";
+
+export const characters: Character[] = [
   {
     id: "1",
     firstName: "Luffy",
@@ -852,7 +856,7 @@ export const characters = [
   },
 ];
 
-export const fruits = [
+export const fruits: Fruit[] = [
   {
     id: "1",
     name: "Bara Bara no Mi",
@@ -975,7 +979,7 @@ export const fruits = [
   },
 ];
 
-export const arcs =[
+export const arcs: Arc[] = [
   {
     id: "1",
     name: "Arabasta",
@@ -983,10 +987,10 @@ export const arcs =[
     lastChapter: 217,
     characters: [
       { character: { id: "1" }, role: "Main" },
-      { character: { id: "2" }, relationshipType: "Supporting" },
-      { character: { id: "15" }, relationshipType: "Main" },
+      { character: { id: "2" }, role: "Supporting" },
+      { character: { id: "15" }, role: "Main" },
     ],
-    plot: "The Straw Hats finally reach the desert kingdom of Arabasta and begin their race across the land to reach Alubarna before a massive war can break out between the kingdom's royal guards and the rebels. However, the true perpetrator of the war, Mr. 0 (Crocodile), and his remaining Baroque Works officer agents stand in the way of the Straw Hats reaching their goal."
+    plot: "The Straw Hats finally reach the desert kingdom of Arabasta and begin their race across the land to reach Alubarna before a massive war can break out between the kingdom's royal guards and the rebels. However, the true perpetrator of the war, Mr. 0 (Crocodile), and his remaining Baroque Works officer agents stand in the way of the Straw Hats reaching their goal.",
   },
   {
     id: "2",
@@ -995,9 +999,9 @@ export const arcs =[
     lastChapter: 302,
     characters: [
       { character: { id: "1" }, role: "Main" },
-      { character: { id: "15" }, relationshipType: "Main" },
+      { character: { id: "15" }, role: "Main" },
     ],
-    plot: "The Straw Hats arrive on the Sky Island Skypiea and learn of its connections to Jaya and Mont Blanc Noland's tale of a lost city of gold. As the crew embarks in search of treasure, they become entangled in a three-way war between the native Skypieans, the vengeful Shandians, and the land's cruel 'god', Enel."
+    plot: "The Straw Hats arrive on the Sky Island Skypiea and learn of its connections to Jaya and Mont Blanc Noland's tale of a lost city of gold. As the crew embarks in search of treasure, they become entangled in a three-way war between the native Skypieans, the vengeful Shandians, and the land's cruel 'god', Enel.",
   },
   {
     id: "3",
@@ -1006,9 +1010,9 @@ export const arcs =[
     lastChapter: 374,
     characters: [
       { character: { id: "1" }, role: "Main" },
-      { character: { id: "15" }, relationshipType: "Main" },
+      { character: { id: "15" }, role: "Main" },
     ],
-    plot: "The Straw Hats arrive at the oceanic metropolis of Water 7 to find a shipwright who can repair the Going Merry, as well as potentially join their crew. They soon become targeted by the Franky Family, the city's underground gang, and become involved in a plot within the Galley-La Company. Between the disappearance of Robin and a schism that develops between Luffy and Usopp, the crew begins to fall apart."
+    plot: "The Straw Hats arrive at the oceanic metropolis of Water 7 to find a shipwright who can repair the Going Merry, as well as potentially join their crew. They soon become targeted by the Franky Family, the city's underground gang, and become involved in a plot within the Galley-La Company. Between the disappearance of Robin and a schism that develops between Luffy and Usopp, the crew begins to fall apart.",
   },
   {
     id: "4",
@@ -1017,9 +1021,9 @@ export const arcs =[
     lastChapter: 430,
     characters: [
       { character: { id: "1" }, role: "Main" },
-      { character: { id: "15" }, relationshipType: "Main" },
+      { character: { id: "15" }, role: "Main" },
     ],
-    plot: "The Straw Hats, Sogeking, the Franky Family, and the shipwrights of the Galley-La Company arrive at Enies Lobby aboard the Rocketman to rescue Nico Robin and Franky. Standing in their way, however, are the forces of the World Government, including its deadly assassination unit, CP9. A massive battle ensues between the two sides when Luffy declares war against the World Government."
+    plot: "The Straw Hats, Sogeking, the Franky Family, and the shipwrights of the Galley-La Company arrive at Enies Lobby aboard the Rocketman to rescue Nico Robin and Franky. Standing in their way, however, are the forces of the World Government, including its deadly assassination unit, CP9. A massive battle ensues between the two sides when Luffy declares war against the World Government.",
   },
   {
     id: "5",
@@ -1028,12 +1032,12 @@ export const arcs =[
     lastChapter: 513,
     characters: [
       { character: { id: "1" }, role: "Main" },
-      { character: { id: "5" }, relationshipType: "Main" },
-      { character: { id: "6" }, relationshipType: "Main" },
-      { character: { id: "10" }, relationshipType: "Main" },
-      { character: { id: "15" }, relationshipType: "Main" },
+      { character: { id: "5" }, role: "Main" },
+      { character: { id: "6" }, role: "Main" },
+      { character: { id: "10" }, role: "Main" },
+      { character: { id: "15" }, role: "Main" },
     ],
-    plot: "The Straw Hat Pirates arrive at the final island of the Grand Line's first half, Sabaody Archipelago. While searching for a means to pass under the Red Line into the New World, they come into conflict with a deadly slave trading ring that sells to the World Nobles. Luffy and Zoro are labelled as two of the Eleven Supernovas, rookies of significant bounties who have simultaneously arrived at the archipelago. A chain reaction of events engulfs the archipelago in chaos, and the Straw Hats are faced with their greatest challenge yet."
+    plot: "The Straw Hat Pirates arrive at the final island of the Grand Line's first half, Sabaody Archipelago. While searching for a means to pass under the Red Line into the New World, they come into conflict with a deadly slave trading ring that sells to the World Nobles. Luffy and Zoro are labelled as two of the Eleven Supernovas, rookies of significant bounties who have simultaneously arrived at the archipelago. A chain reaction of events engulfs the archipelago in chaos, and the Straw Hats are faced with their greatest challenge yet.",
   },
   {
     id: "6",
@@ -1042,11 +1046,11 @@ export const arcs =[
     lastChapter: 549,
     characters: [
       { character: { id: "1" }, role: "Main" },
-      { character: { id: "2" }, relationshipType: "Main" },
-      { character: { id: "3" }, relationshipType: "Main" },
-      { character: { id: "14" }, relationshipType: "Main" },
+      { character: { id: "2" }, role: "Main" },
+      { character: { id: "3" }, role: "Main" },
+      { character: { id: "14" }, role: "Main" },
     ],
-    plot: "Luffy puts finding his crew on hold in favor of rescuing his brother Ace from the underwater prison Impel Down. With Boa Hancock's help, he manages to infiltrate the facility. However, fulfilling his objective and escaping the hellish prison might be easier said than done."
+    plot: "Luffy puts finding his crew on hold in favor of rescuing his brother Ace from the underwater prison Impel Down. With Boa Hancock's help, he manages to infiltrate the facility. However, fulfilling his objective and escaping the hellish prison might be easier said than done.",
   },
   {
     id: "7",
@@ -1055,15 +1059,15 @@ export const arcs =[
     lastChapter: 580,
     characters: [
       { character: { id: "1" }, role: "Main" },
-      { character: { id: "2" }, relationshipType: "Main" },
-      { character: { id: "3" }, relationshipType: "Supporting" },
-      { character: { id: "4" }, relationshipType: "Main" },
-      { character: { id: "9" }, relationshipType: "Main" },
-      { character: { id: "10" }, relationshipType: "Main" },
-      { character: { id: "13" }, relationshipType: "Main" },
-      { character: { id: "14" }, relationshipType: "Supporting" },
+      { character: { id: "2" }, role: "Main" },
+      { character: { id: "3" }, role: "Supporting" },
+      { character: { id: "4" }, role: "Main" },
+      { character: { id: "9" }, role: "Main" },
+      { character: { id: "10" }, role: "Main" },
+      { character: { id: "13" }, role: "Main" },
+      { character: { id: "14" }, role: "Supporting" },
     ],
-    plot: "Having failed to reach Ace before he was transferred, Luffy and his companions escape from Impel Down and travel to Marineford, the base of Marine Headquarters. With the odds stacked high against him, the imminent threat of Whitebeard, and the ulterior motives of pirates that wish to overthrow the Emperor, Luffy struggles to hold his own in this titanic clash of powers."
+    plot: "Having failed to reach Ace before he was transferred, Luffy and his companions escape from Impel Down and travel to Marineford, the base of Marine Headquarters. With the odds stacked high against him, the imminent threat of Whitebeard, and the ulterior motives of pirates that wish to overthrow the Emperor, Luffy struggles to hold his own in this titanic clash of powers.",
   },
   {
     id: "8",
@@ -1072,10 +1076,10 @@ export const arcs =[
     lastChapter: 699,
     characters: [
       { character: { id: "1" }, role: "Main" },
-      { character: { id: "6" }, relationshipType: "Main" },
-      { character: { id: "15" }, relationshipType: "Main" },
+      { character: { id: "6" }, role: "Main" },
+      { character: { id: "15" }, role: "Main" },
     ],
-    plot: "Upon finally entering the New World, the Straw Hat Pirates immediately receive a distress call from residents of Punk Hazard, who state that a samurai is attacking them. Without hesitation, Luffy sets out to the blazing island, with Vice Admiral Smoker hot on his tail. On the supposedly death-ridden and empty island, the Straw Hats soon must contend with both the G-5 Marines, led by Vice Admiral Smoker, and the mad scientist Caesar Clown, whose deadly experiments must be stopped."
+    plot: "Upon finally entering the New World, the Straw Hat Pirates immediately receive a distress call from residents of Punk Hazard, who state that a samurai is attacking them. Without hesitation, Luffy sets out to the blazing island, with Vice Admiral Smoker hot on his tail. On the supposedly death-ridden and empty island, the Straw Hats soon must contend with both the G-5 Marines, led by Vice Admiral Smoker, and the mad scientist Caesar Clown, whose deadly experiments must be stopped.",
   },
   {
     id: "9",
@@ -1084,11 +1088,11 @@ export const arcs =[
     lastChapter: 801,
     characters: [
       { character: { id: "1" }, role: "Main" },
-      { character: { id: "6" }, relationshipType: "Main" },
-      { character: { id: "11" }, relationshipType: "Supporting" },
-      { character: { id: "15" }, relationshipType: "Main" },
+      { character: { id: "6" }, role: "Main" },
+      { character: { id: "11" }, role: "Supporting" },
+      { character: { id: "15" }, role: "Main" },
     ],
-    plot: "The Straw Hat Pirates and Trafalgar Law, together with Kin'emon, Momonosuke and the captured Caesar Clown, travel to Dressrosa with the goal of taking down the nation's king, Warlord of the Sea Donquixote Doflamingo. However, they soon set into motion a series of world-changing events, as their actions interact unexpectedly with those of larger forces at play."
+    plot: "The Straw Hat Pirates and Trafalgar Law, together with Kin'emon, Momonosuke and the captured Caesar Clown, travel to Dressrosa with the goal of taking down the nation's king, Warlord of the Sea Donquixote Doflamingo. However, they soon set into motion a series of world-changing events, as their actions interact unexpectedly with those of larger forces at play.",
   },
   {
     id: "10",
@@ -1097,17 +1101,16 @@ export const arcs =[
     lastChapter: 1057,
     characters: [
       { character: { id: "1" }, role: "Main" },
-      { character: { id: "5" }, relationshipType: "Main" },
-      { character: { id: "6" }, relationshipType: "Main" },
-      { character: { id: "7" }, relationshipType: "Main" },
-      { character: { id: "8" }, relationshipType: "Main" },
-      { character: { id: "12" }, relationshipType: "Supporting" },
-      { character: { id: "15" }, relationshipType: "Main" },
+      { character: { id: "5" }, role: "Main" },
+      { character: { id: "6" }, role: "Main" },
+      { character: { id: "7" }, role: "Main" },
+      { character: { id: "8" }, role: "Main" },
+      { character: { id: "12" }, role: "Supporting" },
+      { character: { id: "15" }, role: "Main" },
     ],
-    plot: "The Ninja-Pirate-Mink-Samurai Alliance gather their forces in Wano Country and prepare for their inevitable clash against the Beasts Pirates. The history of Kouzuki Oden and his ties to Wano Country, Whitebeard and Gol D. Roger are revealed, and the Alliance assaults Onigashima to take down the allied forces of Kaidou and Big Mom once and for all. The resulting battle, as well as the events during the recent Levely, cause the world to go through dramatic changes."
+    plot: "The Ninja-Pirate-Mink-Samurai Alliance gather their forces in Wano Country and prepare for their inevitable clash against the Beasts Pirates. The history of Kouzuki Oden and his ties to Wano Country, Whitebeard and Gol D. Roger are revealed, and the Alliance assaults Onigashima to take down the allied forces of Kaidou and Big Mom once and for all. The resulting battle, as well as the events during the recent Levely, cause the world to go through dramatic changes.",
   },
 ];
-
 
 export default {
   characters,

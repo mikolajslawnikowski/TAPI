@@ -1,13 +1,13 @@
-import express from "express";
+import { Router } from "express";
 import {
   getAllFruits,
   getFruitById,
   createFruit,
   updateFruit,
   deleteFruit,
-} from "../controllers/fruitsController.js";
+} from "../controllers/fruitsController";
 
-const router = express.Router();
+const router = Router();
 
 router.get("/", getAllFruits);
 router.get("/:id", getFruitById);

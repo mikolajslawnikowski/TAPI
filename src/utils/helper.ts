@@ -1,15 +1,23 @@
-import { fruits, characters } from "../data/data.js";
+import { fruits, characters } from "../data/data";
+import { Character } from "../types/character";
+import { Fruit } from "../types/fruit";
+import { Arc } from "../types/arc";
 
-export const transformCharacterData = (character) => {
+export const transformCharacterData = (
+  character: Character
+): Character & { _links: any } => {
   const transformedCharacter = { ...character };
 
   transformedCharacter.devilFruits = character.devilFruits.map((df) => {
     const foundFruit = fruits.find((f) => f.id === df.fruit.id);
     const fruit = foundFruit || df.fruit;
     return {
-      ...fruit,
-      _links: {
-        self: { href: `/fruits/${fruit.id}` },
+      ...df,
+      fruit: {
+        ...fruit,
+        _links: {
+          self: { href: `/fruits/${fruit.id}` },
+        },
       },
     };
   });
@@ -22,9 +30,12 @@ export const transformCharacterData = (character) => {
       const foundFruit = fruits.find((f) => f.id === df.fruit.id);
       const fruit = foundFruit || df.fruit;
       return {
-        ...fruit,
-        _links: {
-          self: { href: `/fruits/${fruit.id}` },
+        ...df,
+        fruit: {
+          ...fruit,
+          _links: {
+            self: { href: `/fruits/${fruit.id}` },
+          },
         },
       };
     });
@@ -54,11 +65,13 @@ export const transformCharacterData = (character) => {
   };
 };
 
-export const transformCharacters = (characters) => {
+export const transformCharacters = (
+  characters: Character[]
+): (Character & { _links: any })[] => {
   return characters.map(transformCharacterData);
 };
 
-export const transformArcData = (arc) => {
+export const transformArcData = (arc: Arc): Arc & { _links: any } => {
   const transformedArc = { ...arc };
 
   transformedArc.characters = arc.characters.map((char) => {
@@ -101,11 +114,11 @@ export const transformArcData = (arc) => {
   };
 };
 
-export const transformArcs = (arcs) => {
+export const transformArcs = (arcs: Arc[]): (Arc & { _links: any })[] => {
   return arcs.map(transformArcData);
 };
 
-export const transformFruit = (fruit) => {
+export const transformFruit = (fruit: Fruit): Fruit & { _links: any } => {
   return {
     ...fruit,
     _links: {
@@ -115,6 +128,8 @@ export const transformFruit = (fruit) => {
   };
 };
 
-export const transformFruits = (fruits) => {
+export const transformFruits = (
+  fruits: Fruit[]
+): (Fruit & { _links: any })[] => {
   return fruits.map(transformFruit);
 };

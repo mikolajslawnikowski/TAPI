@@ -5,7 +5,7 @@ import {
   createCharacter,
   updateCharacter,
   deleteCharacter,
-} from "../controllers/charactersController.js";
+} from "../controllers/charactersController";
 
 const router = express.Router();
 

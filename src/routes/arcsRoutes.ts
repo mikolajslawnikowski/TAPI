@@ -1,13 +1,13 @@
-import express from "express";
+import { Router, RequestHandler } from "express";
 import {
   getAllArcs,
   getArcById,
   createArc,
   updateArc,
   deleteArc,
-} from "../controllers/arcsController.js";
+} from "../controllers/arcsController";
 
-const router = express.Router();
+const router = Router();
 
 router.get("/", getAllArcs);
 router.get("/:id", getArcById);
