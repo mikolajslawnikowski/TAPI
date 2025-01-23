@@ -1,7 +1,17 @@
 import { RequestHandler } from "express";
 import { arcs } from "../data/data";
 import { transformArcData, transformArcs } from "../utils/helper";
-import { Arc } from "../types/arc";
+import { Arc, ArcRequest, ArcParams, ArcCharacter } from "../types/arc";
+import { ApiResponse } from "../types/responses";
+import { APIError } from "../types/error";
+
+interface UpdateArcData {
+  name?: string;
+  firstChapter?: number;
+  lastChapter?: number;
+  characters?: ArcCharacter[];
+  plot?: string;
+}
 
 export const getAllArcs: RequestHandler = (_req, res) => {
   try {
@@ -61,7 +71,10 @@ export const getArcById: RequestHandler<{ id: string }> = (req, res) => {
   }
 };
 
-export const createArc: RequestHandler<{}, any, Arc> = (req, res) => {
+export const createArc: RequestHandler<{}, ApiResponse<Arc>, Arc> = (
+  req,
+  res
+) => {
   const { name, firstChapter, lastChapter, characters, plot } = req.body;
 
   if (!name || !firstChapter || !lastChapter || !characters || !plot) {
@@ -98,10 +111,11 @@ export const createArc: RequestHandler<{}, any, Arc> = (req, res) => {
   }
 };
 
-export const updateArc: RequestHandler<{ id: string }, any, Partial<Arc>> = (
-  req,
-  res
-) => {
+export const updateArc: RequestHandler<
+  ArcParams["params"],
+  ApiResponse<Arc>,
+  Partial<Arc>
+> = (req, res) => {
   const { id } = req.params;
   const updateData = req.body;
 
@@ -124,7 +138,7 @@ export const updateArc: RequestHandler<{ id: string }, any, Partial<Arc>> = (
     ] as const;
     validKeys.forEach((key) => {
       if (key in updateData && updateData[key] !== undefined) {
-        (arc as any)[key] = updateData[key];
+        (arc[key] as UpdateArcData[typeof key]) = updateData[key];
       }
     });
 
@@ -137,9 +151,15 @@ export const updateArc: RequestHandler<{ id: string }, any, Partial<Arc>> = (
       },
     });
   } catch (err) {
-    res.status(500).json({
-      message: "Internal Server Error",
-    });
+    if (err instanceof Error) {
+      res.status(500).json({
+        message: err.message,
+      });
+    } else {
+      res.status(500).json({
+        message: "Internal Server Error",
+      });
+    }
   }
 };
 

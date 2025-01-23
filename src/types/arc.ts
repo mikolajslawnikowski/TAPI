@@ -1,5 +1,6 @@
 import { Request } from "express";
 import { CharacterReference } from "./character";
+import { TransformedResource } from "./links";
 
 export interface ArcCharacter {
   character: CharacterReference;
@@ -25,3 +26,5 @@ export interface ArcParams extends Request {
     id: string;
   };
 }
+
+export interface TransformedArc extends Arc, TransformedResource {}

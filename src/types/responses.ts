@@ -11,4 +11,6 @@ export interface ApiResponse<T> {
   message?: string;
   data?: T;
   _links?: Links;
+  error?: string;
+  requiredFields?: Record<string, string>;
 }

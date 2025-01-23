@@ -4,7 +4,19 @@ import {
   FruitFilterInput,
   CreateFruitInput,
   UpdateFruitInput,
+  Fruit,
 } from "../../types/fruit";
+import { GraphQLResolveInfo } from "graphql";
+
+interface ResolverContext {
+  // Add any context properties you need
+}
+
+type MutationContext = {
+  _parent: never;
+  _context: ResolverContext;
+  _info: GraphQLResolveInfo;
+};
 
 const filterString = (value: string, filter?: StringFilterInput): boolean => {
   if (!filter) return true;
@@ -30,7 +42,12 @@ const resolvers = {
   },
 
   Query: {
-    fruits: (_: any, { filter }: { filter?: FruitFilterInput }) => {
+    fruits: (
+      _parent: never,
+      { filter }: { filter?: FruitFilterInput },
+      _context: ResolverContext,
+      _info: GraphQLResolveInfo
+    ) => {
       if (!filter) return fruits;
 
       return fruits.filter((fruit) => {
@@ -46,12 +63,21 @@ const resolvers = {
         return true;
       });
     },
-    fruit: (_: any, { id }: { id: string }) =>
-      fruits.find((fruit) => fruit.id === id),
+    fruit: (
+      _parent: never,
+      { id }: { id: string },
+      _context: ResolverContext,
+      _info: GraphQLResolveInfo
+    ) => fruits.find((fruit) => fruit.id === id),
   },
 
   Mutation: {
-    createFruit: (_: any, { input }: { input: CreateFruitInput }) => {
+    createFruit: (
+      _parent: never,
+      { input }: { input: CreateFruitInput },
+      _context: ResolverContext,
+      _info: GraphQLResolveInfo
+    ) => {
       const newFruit = {
         id: (fruits.length + 1).toString(),
         ...input,
@@ -61,8 +87,10 @@ const resolvers = {
     },
 
     updateFruit: (
-      _: any,
-      { id, input }: { id: string; input: UpdateFruitInput }
+      _parent: never,
+      { id, input }: { id: string; input: UpdateFruitInput },
+      _context: ResolverContext,
+      _info: GraphQLResolveInfo
     ) => {
       const fruitIndex = fruits.findIndex((fruit) => fruit.id === id);
       if (fruitIndex === -1) throw new Error("Fruit not found");
@@ -75,7 +103,12 @@ const resolvers = {
       return updatedFruit;
     },
 
-    deleteFruit: (_: any, { id }: { id: string }) => {
+    deleteFruit: (
+      _parent: never,
+      { id }: { id: string },
+      _context: ResolverContext,
+      _info: GraphQLResolveInfo
+    ) => {
       const fruitIndex = fruits.findIndex((fruit) => fruit.id === id);
       if (fruitIndex === -1) return false;
 

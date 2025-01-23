@@ -1,7 +1,13 @@
 import { RequestHandler } from "express";
 import { characters } from "../data/data";
 import { transformCharacterData, transformCharacters } from "../utils/helper";
-import { Character } from "../types/character";
+import {
+  Character,
+  CharacterRequest,
+  CharacterParams,
+} from "../types/character";
+import { ApiResponse } from "../types/responses";
+import { APIError } from "../types/error";
 
 export const getAllCharacters: RequestHandler = (_req, res) => {
   try {
@@ -52,10 +58,11 @@ export const getCharacterById: RequestHandler<{ id: string }> = (req, res) => {
   }
 };
 
-export const createCharacter: RequestHandler<{}, any, Character> = (
-  req,
-  res
-) => {
+export const createCharacter: RequestHandler<
+  {},
+  ApiResponse<Character>,
+  Character
+> = (req, res) => {
   const { body } = req;
 
   if (!isValidCharacterData(body)) {
@@ -103,8 +110,8 @@ export const createCharacter: RequestHandler<{}, any, Character> = (
 };
 
 export const updateCharacter: RequestHandler<
-  { id: string },
-  any,
+  CharacterParams["params"],
+  ApiResponse<Character>,
   Partial<Character>
 > = (req, res) => {
   try {
@@ -152,19 +159,19 @@ export const deleteCharacter: RequestHandler<{ id: string }> = (req, res) => {
   }
 };
 
-function isValidCharacterData(data: any): data is Character {
-  return (
+function isValidCharacterData(data: Partial<Character>): data is Character {
+  return Boolean(
     data.firstName &&
-    data.lastName &&
-    data.fullName &&
-    data.nickname &&
-    data.affiliation &&
-    data.occupancy &&
-    data.alive !== undefined &&
-    data.bounty !== undefined &&
-    Array.isArray(data.haki) &&
-    Array.isArray(data.abilities) &&
-    Array.isArray(data.devilFruits) &&
-    Array.isArray(data.relationships)
+      data.lastName &&
+      data.fullName &&
+      data.nickname &&
+      data.affiliation &&
+      data.occupancy &&
+      data.alive !== undefined &&
+      data.bounty !== undefined &&
+      Array.isArray(data.haki) &&
+      Array.isArray(data.abilities) &&
+      Array.isArray(data.devilFruits) &&
+      Array.isArray(data.relationships)
   );
 }

@@ -1,7 +1,14 @@
 import { RequestHandler } from "express";
 import { fruits } from "../data/data";
 import { transformFruit, transformFruits } from "../utils/helper";
-import { Fruit, FruitParams } from "../types/fruit";
+import {
+  Fruit,
+  FruitParams,
+  CreateFruitInput,
+  UpdateFruitInput,
+} from "../types/fruit";
+import { ApiResponse } from "../types/responses";
+import { APIError } from "../types/error";
 
 export const getAllFruits: RequestHandler = (req, res) => {
   try {
@@ -33,31 +40,36 @@ export const getFruitById: RequestHandler<FruitParams> = (req, res) => {
   }
 };
 
-export const createFruit: RequestHandler<{}, any, Fruit> = (req, res) => {
+export const createFruit: RequestHandler<
+  {},
+  ApiResponse<Fruit>,
+  CreateFruitInput
+> = (req, res) => {
   try {
     const newFruitData = req.body;
     const newFruit: Fruit = {
       id: (fruits.length + 1).toString(),
-      name: newFruitData.name || "",
-      type: newFruitData.type || "",
-      meaning: newFruitData.meaning || "",
-      properties: newFruitData.properties || "",
+      name: newFruitData.name,
+      type: newFruitData.type,
+      meaning: newFruitData.meaning,
+      properties: newFruitData.properties,
     };
 
     fruits.push(newFruit);
     const transformedFruit = transformFruit(newFruit);
     res.status(201).json(transformedFruit);
-  } catch (error: unknown) {
+  } catch (error) {
     const errorMessage =
       error instanceof Error ? error.message : "An unknown error occurred";
-    res.status(500).json({ error: errorMessage });
+    res.status(500).json({ message: errorMessage });
   }
 };
 
-export const updateFruit: RequestHandler<FruitParams, any, Partial<Fruit>> = (
-  req,
-  res
-) => {
+export const updateFruit: RequestHandler<
+  FruitParams,
+  ApiResponse<Fruit>,
+  UpdateFruitInput
+> = (req, res) => {
   try {
     const { id } = req.params;
     const updateData = req.body;
@@ -77,10 +89,10 @@ export const updateFruit: RequestHandler<FruitParams, any, Partial<Fruit>> = (
     fruits[fruitIndex] = updatedFruit;
     const transformedFruit = transformFruit(updatedFruit);
     res.json(transformedFruit);
-  } catch (error: unknown) {
+  } catch (error) {
     const errorMessage =
       error instanceof Error ? error.message : "An unknown error occurred";
-    res.status(500).json({ error: errorMessage });
+    res.status(500).json({ message: errorMessage });
   }
 };
 
