@@ -4,6 +4,8 @@ import {
   FruitFilterInput,
   CreateFruitInput,
   UpdateFruitInput,
+  SortInput,
+  PaginationInput,
 } from "../../types/fruit";
 import { GraphQLResolveInfo } from "graphql";
 
@@ -18,6 +20,30 @@ const filterString = (value: string, filter?: StringFilterInput): boolean => {
     return false;
 
   return true;
+};
+
+const applySorting = (fruits: any[], sort?: SortInput) => {
+  if (!sort) return fruits;
+
+  return [...fruits].sort((a, b) => {
+    const aValue = a[sort.field];
+    const bValue = b[sort.field];
+    const multiplier = sort.order === "ASC" ? 1 : -1;
+
+    if (typeof aValue === "string") {
+      return aValue.localeCompare(bValue) * multiplier;
+    }
+    return (aValue - bValue) * multiplier;
+  });
+};
+
+const applyPagination = (fruits: any[], pagination?: PaginationInput) => {
+  if (!pagination) return fruits;
+
+  const offset = pagination.offset || 0;
+  const limit = pagination.limit || fruits.length;
+
+  return fruits.slice(offset, offset + limit);
 };
 
 const fruitResolvers = {
@@ -36,20 +62,29 @@ const fruitResolvers = {
       { filter }: { filter?: FruitFilterInput },
       _info: GraphQLResolveInfo
     ) => {
-      if (!filter) return fruits;
+      let result = fruits;
 
-      return fruits.filter((fruit) => {
-        if (filter.name && !filterString(fruit.name, filter.name)) return false;
-        if (filter.type && !filterString(fruit.type, filter.type)) return false;
-        if (filter.meaning && !filterString(fruit.meaning, filter.meaning))
-          return false;
-        if (
-          filter.properties &&
-          !filterString(fruit.properties, filter.properties)
-        )
-          return false;
-        return true;
-      });
+      if (filter) {
+        result = fruits.filter((fruit) => {
+          if (filter.name && !filterString(fruit.name, filter.name))
+            return false;
+          if (filter.type && !filterString(fruit.type, filter.type))
+            return false;
+          if (filter.meaning && !filterString(fruit.meaning, filter.meaning))
+            return false;
+          if (
+            filter.properties &&
+            !filterString(fruit.properties, filter.properties)
+          )
+            return false;
+          return true;
+        });
+
+        result = applySorting(result, filter.sort);
+        result = applyPagination(result, filter.pagination);
+      }
+
+      return result;
     },
     fruit: (
       _parent: never,

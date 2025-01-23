@@ -3,6 +3,21 @@ import { gql } from "apollo-server-express";
 const typeDefs = gql`
   scalar Date
 
+  enum SortOrder {
+    ASC
+    DESC
+  }
+
+  input SortInput {
+    field: String!
+    order: SortOrder!
+  }
+
+  input PaginationInput {
+    offset: Int
+    limit: Int
+  }
+
   input StringFilterInput {
     eq: String
     contains: String
@@ -15,6 +30,8 @@ const typeDefs = gql`
     type: StringFilterInput
     meaning: StringFilterInput
     properties: StringFilterInput
+    sort: SortInput
+    pagination: PaginationInput
   }
 
   input CreateFruitInput {

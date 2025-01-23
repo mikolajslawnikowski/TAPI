@@ -22,11 +22,25 @@ export interface StringFilterInput {
   notContains?: string;
 }
 
+export type SortOrder = "ASC" | "DESC";
+
+export interface SortInput {
+  field: string;
+  order: SortOrder;
+}
+
+export interface PaginationInput {
+  offset?: number;
+  limit?: number;
+}
+
 export interface FruitFilterInput {
   name?: StringFilterInput;
   type?: StringFilterInput;
   meaning?: StringFilterInput;
   properties?: StringFilterInput;
+  sort?: SortInput;
+  pagination?: PaginationInput;
 }
 
 export interface CreateFruitInput {
