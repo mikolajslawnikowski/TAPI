@@ -1,9 +1,8 @@
 import { Request } from "express";
+import { CharacterReference } from "./character";
 
 export interface ArcCharacter {
-  character: {
-    id: string;
-  };
+  character: CharacterReference;
   role: string;
 }
 

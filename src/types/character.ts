@@ -1,4 +1,10 @@
 import { Request } from "express";
+import { FruitReference } from "./fruit";
+
+export interface CharacterReference {
+  id: string;
+  type: "CHARACTER";
+}
 
 export interface Haki {
   type: string;
@@ -11,16 +17,11 @@ export interface Ability {
 }
 
 export interface DevilFruit {
-  fruit: {
-    id: string;
-    type: string;
-  };
+  fruit: FruitReference;
 }
 
 export interface Relationship {
-  character: {
-    id: string;
-  };
+  character: CharacterReference;
   relationshipType: string;
 }
 
