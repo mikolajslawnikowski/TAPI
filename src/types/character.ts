@@ -50,3 +50,36 @@ export interface CharacterParams {
     id: string;
   };
 }
+
+export interface StringFilterInput {
+  eq?: string;
+  contains?: string;
+  ne?: string;
+  notContains?: string;
+}
+
+export type SortOrder = "ASC" | "DESC";
+
+export interface SortInput {
+  field: string;
+  order: SortOrder;
+}
+
+export interface PaginationInput {
+  offset?: number;
+  limit?: number;
+}
+
+export interface CharacterFilterInput {
+  firstName?: StringFilterInput;
+  lastName?: StringFilterInput;
+  fullName?: StringFilterInput;
+  nickname?: StringFilterInput;
+  affiliation?: StringFilterInput;
+  occupancy?: StringFilterInput;
+  alive?: boolean;
+  bountyGreaterThan?: number;
+  bountyLessThan?: number;
+  sort?: SortInput;
+  pagination?: PaginationInput;
+}
