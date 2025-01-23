@@ -25,7 +25,7 @@ export interface StringFilterInput {
 export type SortOrder = "ASC" | "DESC";
 
 export interface SortInput {
-  field: string;
+  field: keyof Fruit;
   order: SortOrder;
 }
 

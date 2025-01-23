@@ -1,6 +1,6 @@
 import { Request } from "express";
 import { CharacterReference } from "./character";
-import { TransformedResource } from "./links";
+import { TransformedResource, ResourceLinks } from "./links";
 
 export interface ArcCharacter {
   character: CharacterReference;
@@ -14,7 +14,7 @@ export interface Arc {
   lastChapter: number;
   characters: ArcCharacter[];
   plot: string;
-  [key: string]: string | number | ArcCharacter[] | unknown;
+  [key: string]: string | number | ArcCharacter[] | ResourceLinks;
 }
 
 export interface ArcRequest extends Request {

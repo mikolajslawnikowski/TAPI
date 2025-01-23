@@ -6,6 +6,7 @@ import {
   UpdateFruitInput,
   SortInput,
   PaginationInput,
+  Fruit,
 } from "../../types/fruit";
 import { GraphQLResolveInfo } from "graphql";
 
@@ -22,22 +23,25 @@ const filterString = (value: string, filter?: StringFilterInput): boolean => {
   return true;
 };
 
-const applySorting = (fruits: any[], sort?: SortInput) => {
+const applySorting = (fruits: Fruit[], sort?: SortInput): Fruit[] => {
   if (!sort) return fruits;
 
   return [...fruits].sort((a, b) => {
-    const aValue = a[sort.field];
-    const bValue = b[sort.field];
+    const aValue = a[sort.field as keyof Fruit];
+    const bValue = b[sort.field as keyof Fruit];
     const multiplier = sort.order === "ASC" ? 1 : -1;
 
-    if (typeof aValue === "string") {
+    if (typeof aValue === "string" && typeof bValue === "string") {
       return aValue.localeCompare(bValue) * multiplier;
     }
-    return (aValue - bValue) * multiplier;
+    return 0;
   });
 };
 
-const applyPagination = (fruits: any[], pagination?: PaginationInput) => {
+const applyPagination = (
+  fruits: Fruit[],
+  pagination?: PaginationInput
+): Fruit[] => {
   if (!pagination) return fruits;
 
   const offset = pagination.offset || 0;
@@ -58,10 +62,10 @@ const fruitResolvers = {
 
   Query: {
     fruits: (
-      _parent: never,
+      _parent: null,
       { filter }: { filter?: FruitFilterInput },
       _info: GraphQLResolveInfo
-    ) => {
+    ): Fruit[] => {
       let result = fruits;
 
       if (filter) {
@@ -87,18 +91,18 @@ const fruitResolvers = {
       return result;
     },
     fruit: (
-      _parent: never,
+      _parent: null,
       { id }: { id: string },
       _info: GraphQLResolveInfo
-    ) => fruits.find((fruit) => fruit.id === id),
+    ): Fruit | null => fruits.find((fruit) => fruit.id === id) || null,
   },
 
   Mutation: {
     createFruit: (
-      _parent: never,
+      _parent: null,
       { input }: { input: CreateFruitInput },
       _info: GraphQLResolveInfo
-    ) => {
+    ): Fruit => {
       const newFruit = {
         id: (fruits.length + 1).toString(),
         ...input,
@@ -108,10 +112,10 @@ const fruitResolvers = {
     },
 
     updateFruit: (
-      _parent: never,
+      _parent: null,
       { id, input }: { id: string; input: UpdateFruitInput },
       _info: GraphQLResolveInfo
-    ) => {
+    ): Fruit => {
       const fruitIndex = fruits.findIndex((fruit) => fruit.id === id);
       if (fruitIndex === -1) throw new Error("Fruit not found");
 
@@ -124,10 +128,10 @@ const fruitResolvers = {
     },
 
     deleteFruit: (
-      _parent: never,
+      _parent: null,
       { id }: { id: string },
       _info: GraphQLResolveInfo
-    ) => {
+    ): boolean => {
       const fruitIndex = fruits.findIndex((fruit) => fruit.id === id);
       if (fruitIndex === -1) return false;
 
