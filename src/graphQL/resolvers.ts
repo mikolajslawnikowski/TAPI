@@ -1,5 +1,6 @@
 import fruitResolvers from "./resolvers/fruitResolver";
 import characterResolvers from "./resolvers/characterResolver";
+import arcResolvers from "./resolvers/arcResolver";
 import { fruits, characters } from "../data/data";
 import { Fruit } from "../types/fruit";
 import { Character } from "../types/character";
@@ -8,24 +9,26 @@ const resolvers = {
   Query: {
     ...fruitResolvers.Query,
     ...characterResolvers.Query,
+    ...arcResolvers.Query,
   },
   Mutation: {
     ...fruitResolvers.Mutation,
     ...characterResolvers.Mutation,
+    ...arcResolvers.Mutation,
   },
   Character: {
     ...characterResolvers.Character,
     relationships: (parent: Character) => {
       if (!parent.relationships) return [];
       return parent.relationships.map((rel) => {
-        const relatedCharacter = characters.find(
+        const foundCharacter = characters.find(
           (c) => c.id === rel.character.id
         );
-        if (!relatedCharacter) {
+        if (!foundCharacter) {
           throw new Error(`Character with id ${rel.character.id} not found`);
         }
         return {
-          character: relatedCharacter,
+          character: foundCharacter,
           relationshipType: rel.relationshipType,
         };
       });
@@ -47,6 +50,7 @@ const resolvers = {
     meaning: (parent: Fruit) => parent.meaning,
     properties: (parent: Fruit) => parent.properties,
   },
+  Arc: arcResolvers.Arc,
 };
 
 export default resolvers;
