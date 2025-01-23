@@ -1,45 +1,84 @@
 import { fruits } from "../../data/data";
-import { Fruit } from "../../types/fruit";
+import {
+  StringFilterInput,
+  FruitFilterInput,
+  CreateFruitInput,
+  UpdateFruitInput,
+} from "../../types/fruit";
+
+const filterString = (value: string, filter?: StringFilterInput): boolean => {
+  if (!filter) return true;
+
+  if (filter.eq !== undefined && value !== filter.eq) return false;
+  if (filter.ne !== undefined && value === filter.ne) return false;
+  if (filter.contains !== undefined && !value.includes(filter.contains))
+    return false;
+  if (filter.notContains !== undefined && value.includes(filter.notContains))
+    return false;
+
+  return true;
+};
 
 const resolvers = {
+  Date: {
+    __parseValue(value: string) {
+      return new Date(value);
+    },
+    __serialize(value: Date) {
+      return value.toISOString();
+    },
+  },
+
   Query: {
-    fruits: () => fruits,
+    fruits: (_: any, { filter }: { filter?: FruitFilterInput }) => {
+      if (!filter) return fruits;
+
+      return fruits.filter((fruit) => {
+        if (filter.name && !filterString(fruit.name, filter.name)) return false;
+        if (filter.type && !filterString(fruit.type, filter.type)) return false;
+        if (filter.meaning && !filterString(fruit.meaning, filter.meaning))
+          return false;
+        if (
+          filter.properties &&
+          !filterString(fruit.properties, filter.properties)
+        )
+          return false;
+        return true;
+      });
+    },
     fruit: (_: any, { id }: { id: string }) =>
       fruits.find((fruit) => fruit.id === id),
-    hello: () => "Hello, world!",
   },
+
   Mutation: {
-    createFruit: (_: any, { name, type, meaning, properties }: Fruit) => {
-      const newFruit: Fruit = {
+    createFruit: (_: any, { input }: { input: CreateFruitInput }) => {
+      const newFruit = {
         id: (fruits.length + 1).toString(),
-        name,
-        type,
-        meaning,
-        properties,
+        ...input,
       };
       fruits.push(newFruit);
       return newFruit;
     },
+
     updateFruit: (
       _: any,
-      { id, name, type, meaning, properties }: Partial<Fruit> & { id: string }
+      { id, input }: { id: string; input: UpdateFruitInput }
     ) => {
       const fruitIndex = fruits.findIndex((fruit) => fruit.id === id);
-      if (fruitIndex === -1) return null;
-      const updatedFruit: Fruit = {
+      if (fruitIndex === -1) throw new Error("Fruit not found");
+
+      const updatedFruit = {
         ...fruits[fruitIndex],
-        name: name ?? fruits[fruitIndex].name,
-        type: type ?? fruits[fruitIndex].type,
-        meaning: meaning ?? fruits[fruitIndex].meaning,
-        properties: properties ?? fruits[fruitIndex].properties,
-        id,
+        ...input,
       };
       fruits[fruitIndex] = updatedFruit;
       return updatedFruit;
     },
+
     deleteFruit: (_: any, { id }: { id: string }) => {
       const fruitIndex = fruits.findIndex((fruit) => fruit.id === id);
       if (fruitIndex === -1) return false;
+
       fruits.splice(fruitIndex, 1);
       return true;
     },

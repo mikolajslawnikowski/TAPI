@@ -1,8 +1,38 @@
 import { gql } from "apollo-server-express";
 
 const typeDefs = gql`
+  scalar Date
+
+  input StringFilterInput {
+    eq: String
+    contains: String
+    ne: String
+    notContains: String
+  }
+
+  input FruitFilterInput {
+    name: StringFilterInput
+    type: StringFilterInput
+    meaning: StringFilterInput
+    properties: StringFilterInput
+  }
+
+  input CreateFruitInput {
+    name: String!
+    type: String!
+    meaning: String!
+    properties: String!
+  }
+
+  input UpdateFruitInput {
+    name: String
+    type: String
+    meaning: String
+    properties: String
+  }
+
   type Fruit {
-    id: String!
+    id: ID!
     name: String!
     type: String!
     meaning: String!
@@ -10,26 +40,14 @@ const typeDefs = gql`
   }
 
   type Query {
-    fruits: [Fruit]
-    fruit(id: String!): Fruit
-    hello: String
+    fruits(filter: FruitFilterInput): [Fruit!]!
+    fruit(id: ID!): Fruit
   }
 
   type Mutation {
-    createFruit(
-      name: String!
-      type: String!
-      meaning: String!
-      properties: String!
-    ): Fruit
-    updateFruit(
-      id: String!
-      name: String
-      type: String
-      meaning: String
-      properties: String
-    ): Fruit
-    deleteFruit(id: String!): Boolean
+    createFruit(input: CreateFruitInput!): Fruit!
+    updateFruit(id: ID!, input: UpdateFruitInput!): Fruit!
+    deleteFruit(id: ID!): Boolean!
   }
 `;
 
