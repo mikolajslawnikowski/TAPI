@@ -12,9 +12,9 @@ export const transformCharacterData = (
     const foundFruit = fruits.find((f) => f.id === df.fruit.id);
     const fruit = foundFruit || df.fruit;
     return {
-      ...df,
       fruit: {
         ...fruit,
+        type: "FRUIT" as const,
         _links: {
           self: { href: `/fruits/${fruit.id}` },
         },
@@ -30,9 +30,9 @@ export const transformCharacterData = (
       const foundFruit = fruits.find((f) => f.id === df.fruit.id);
       const fruit = foundFruit || df.fruit;
       return {
-        ...df,
         fruit: {
           ...fruit,
+          type: "FRUIT" as const,
           _links: {
             self: { href: `/fruits/${fruit.id}` },
           },
@@ -44,6 +44,7 @@ export const transformCharacterData = (
       ...rel,
       character: {
         id: relatedCharacter.id,
+        type: "CHARACTER" as const,
         firstName: relatedCharacter.firstName,
         lastName: relatedCharacter.lastName,
         fullName: relatedCharacter.fullName,
@@ -83,6 +84,7 @@ export const transformArcData = (arc: Arc): Arc & { _links: any } => {
       const fruit = foundFruit || df.fruit;
       return {
         ...fruit,
+        type: "FRUIT" as const,
         _links: {
           self: { href: `/fruits/${fruit.id}` },
         },
@@ -93,6 +95,7 @@ export const transformArcData = (arc: Arc): Arc & { _links: any } => {
       ...char,
       character: {
         id: relatedCharacter.id,
+        type: "CHARACTER" as const,
         firstName: relatedCharacter.firstName,
         lastName: relatedCharacter.lastName,
         fullName: relatedCharacter.fullName,
