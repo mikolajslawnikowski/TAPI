@@ -1,9 +1,9 @@
 import express, { Application } from "express";
-import corsMiddleware from "./rest/middleware/corsMiddleware";
-import setHeaders from "./rest/middleware/setHeadersMiddleware";
-import charactersRoutes from "./rest/routes/charactersRoutes";
-import fruitsRoutes from "./rest/routes/fruitsRoutes";
-import arcsRoutes from "./rest/routes/arcsRoutes";
+import corsMiddleware from "./middleware/corsMiddleware";
+import setHeaders from "./middleware/setHeadersMiddleware";
+import charactersRoutes from "./routes/charactersRoutes";
+import fruitsRoutes from "./routes/fruitsRoutes";
+import arcsRoutes from "./routes/arcsRoutes";
 
 const app: Application = express();
 

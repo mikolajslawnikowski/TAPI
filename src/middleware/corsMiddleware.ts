@@ -1,6 +1,9 @@
 import cors, { CorsOptions } from "cors";
 
-const allowedOrigins: string[] = ["http://localhost:3000"];
+const allowedOrigins: string[] = [
+  "http://localhost:3000",
+  "https://studio.apollographql.com",
+];
 
 const corsOptions: CorsOptions = {
   origin: (
@@ -13,6 +16,7 @@ const corsOptions: CorsOptions = {
       callback(new Error("Not allowed by CORS"));
     }
   },
+  credentials: true,
 };
 
 const corsMiddleware = cors(corsOptions);
