@@ -12,6 +12,7 @@ import YAML from "yamljs";
 
 const app: Application = express();
 const swaggerDocument = YAML.load("./src/docs/openapi.yaml");
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use(express.json());
 app.use(corsMiddleware);
@@ -20,7 +21,6 @@ app.use(setHeaders);
 app.use("/characters", charactersRoutes);
 app.use("/fruits", fruitsRoutes);
 app.use("/arcs", arcsRoutes);
-app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 const startApolloServer = async () => {
   const server = new ApolloServer({ typeDefs, resolvers });
