@@ -1,0 +1,379 @@
+openapi: 3.0.0
+info:
+  title: TAPI One Piece API
+  version: 1.0.0
+  description: |
+    # TAPI Documentation
+
+    API providing information about characters, fruits, and arcs from the One Piece universe.
+
+    ## Features
+    - Character management
+    - Fruit catalog
+    - Arc database
+
+    ## Technologies
+    - Node.js
+    - Express
+    - GraphQL
+    - REST APIservers:
+    - url: http://localhost:3000
+paths:
+  /characters:
+    get:
+      summary: Get all characters
+      responses:
+        "200":
+          description: A list of characters
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Character"
+        "404":
+          description: No characters found
+    post:
+      summary: Create a new character
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Character"
+      responses:
+        "201":
+          description: Character created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Character"
+        "400":
+          description: Invalid input
+  /characters/{id}:
+    get:
+      summary: Get a character by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A character
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Character"
+        "404":
+          description: Character not found
+    put:
+      summary: Update a character by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Character"
+      responses:
+        "200":
+          description: Character updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Character"
+        "404":
+          description: Character not found
+    delete:
+      summary: Delete a character by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Character deleted successfully
+        "404":
+          description: Character not found
+  /fruits:
+    get:
+      summary: Get all fruits
+      responses:
+        "200":
+          description: A list of fruits
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Fruit"
+        "404":
+          description: No fruits found
+    post:
+      summary: Create a new fruit
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Fruit"
+      responses:
+        "201":
+          description: Fruit created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Fruit"
+        "400":
+          description: Invalid input
+  /fruits/{id}:
+    get:
+      summary: Get a fruit by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A fruit
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Fruit"
+        "404":
+          description: Fruit not found
+    put:
+      summary: Update a fruit by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Fruit"
+      responses:
+        "200":
+          description: Fruit updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Fruit"
+        "404":
+          description: Fruit not found
+    delete:
+      summary: Delete a fruit by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Fruit deleted successfully
+        "404":
+          description: Fruit not found
+  /arcs:
+    get:
+      summary: Get all arcs
+      responses:
+        "200":
+          description: A list of arcs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Arc"
+        "404":
+          description: No arcs found
+    post:
+      summary: Create a new arc
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Arc"
+      responses:
+        "201":
+          description: Arc created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Arc"
+        "400":
+          description: Invalid input
+  /arcs/{id}:
+    get:
+      summary: Get an arc by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: An arc
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Arc"
+        "404":
+          description: Arc not found
+    put:
+      summary: Update an arc by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Arc"
+      responses:
+        "200":
+          description: Arc updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Arc"
+        "404":
+          description: Arc not found
+    delete:
+      summary: Delete an arc by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Arc deleted successfully
+        "404":
+          description: Arc not found
+components:
+  schemas:
+    Character:
+      type: object
+      properties:
+        id:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        fullName:
+          type: string
+        nickname:
+          type: string
+        affiliation:
+          type: string
+        occupancy:
+          type: string
+        alive:
+          type: boolean
+        bounty:
+          type: number
+          nullable: true
+        haki:
+          type: array
+          items:
+            $ref: "#/components/schemas/Haki"
+        abilities:
+          type: array
+          items:
+            $ref: "#/components/schemas/Ability"
+        devilFruits:
+          type: array
+          items:
+            $ref: "#/components/schemas/DevilFruit"
+        relationships:
+          type: array
+          items:
+            $ref: "#/components/schemas/Relationship"
+    Haki:
+      type: object
+      properties:
+        type:
+          type: string
+        description:
+          type: string
+    Ability:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+    DevilFruit:
+      type: object
+      properties:
+        fruit:
+          $ref: "#/components/schemas/Fruit"
+    Relationship:
+      type: object
+      properties:
+        character:
+          $ref: "#/components/schemas/Character"
+        relationshipType:
+          type: string
+    Fruit:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        meaning:
+          type: string
+        properties:
+          type: string
+    Arc:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        firstChapter:
+          type: integer
+        lastChapter:
+          type: integer
+        characters:
+          type: array
+          items:
+            $ref: "#/components/schemas/ArcCharacter"
+        plot:
+          type: string
+    ArcCharacter:
+      type: object
+      properties:
+        character:
+          $ref: "#/components/schemas/Character"
+        role:
+          type: string
